@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap');
+
+.conteudo {
+	margin: 0 auto;
+	display: flex;
+}
+.alinhamento-central {
+	min-height: 88vh;
+	justify-content: center;
+	align-items: center;
+    .item{
+        flex: 1;
+	    padding: 10px;
+    }
+}
+.etiqueta{
+    border: 2px solid #0094C0;
+    border-radius: 2em;
+    min-height: 530px;
+    min-width: 287px;
+    background: url(~/assets/images/etiqueta-bg.jpg)no-repeat center center;
+    position: absolute;
+    input{
+        border: none;
+        background: none;
+        color: #FFF;
+        font-weight: bolder;
+        font-size: 1.9em;
+        letter-spacing: -3px;
+    }
+    span{
+        div{
+            position: relative;
+            top: -24px;
+            left: -15px;
+            width: 0; 
+            height: 0; 
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent; 
+            border-right:15px solid #000;
+        }
+        position: absolute;
+        background: #000;
+        text-transform: uppercase;
+        width: 30px;
+        font-size: 24px;
+        height: 30px;
+        padding: 4px 0;
+        line-height: 20px;
+        text-align: center;
+        color: #FFF;
+        right: 130px;
+        
+    }
+    .consumo, .chuva{
+        span{
+            &:nth-child(2){
+                top: 115px;
+            }
+            &:nth-child(4){
+                top: 136px;
+            }
+            &:nth-child(6){
+                top: 158px;
+            }
+            &:nth-child(8){
+                top: 179px;
+            }
+            &:nth-child(10){
+                top: 200px;
+            }
+            &:nth-child(12){
+                top: 221px;
+            }
+            &:nth-child(14){
+                top: 243px;
+            }
+        }
+        button{
+            position: absolute;
+            left: 18px;
+            padding: 0 !important;
+            height: 20px;
+            background: none;
+            border: none;
+            &:hover{
+                background: none;
+                border: none;
+                box-shadow: 0px 0px 20px #333;
+            }
+            &:active, &:focus{
+                box-shadow: none;
+                border: none !important;
+                background: none !important;
+            }
+            &:nth-child(1){
+                top: 121px;
+                width: 20px;
+            }
+            &:nth-child(3){
+                top: 142px;
+                width: 28px;
+            }
+            &:nth-child(5){
+                top: 163px;
+                width: 37px;
+            }
+            &:nth-child(7){
+                top: 184px;
+                width: 45px;
+            }
+            &:nth-child(9){
+                top: 205px;
+                width: 53px;
+            }
+            &:nth-child(11){
+                top: 226px;
+                width: 62px;
+            }
+            &:nth-child(13){
+                top: 248px;
+                width: 70px;
+            }
+        }
+
+    }
+    .chuva{
+        position: absolute;
+        right: -112px;
+        button{
+            position: absolute;
+            left: -230px;
+            padding: 0 !important;
+            height: 20px;
+            background: none;
+            border: none;
+            width: 20px !important;
+            &:hover{
+                background: none;
+                border: none;
+                box-shadow: 0px 0px 20px #333;
+            }
+            &:active, &:focus{
+                box-shadow: none;
+                border: none !important;
+                background: none !important;
+            }
+            &:nth-child(1){
+                top: 121px;
+            }
+            &:nth-child(3){
+                top: 142px;
+            }
+            &:nth-child(5){
+                top: 163px;
+            }
+            &:nth-child(7){
+                top: 184px;
+            }
+            &:nth-child(9){
+                top: 205px;
+            }
+            &:nth-child(11){
+                top: 226px;
+            }
+            &:nth-child(13){
+                top: 248px;
+            }
+        }
+
+    }
+    #db{
+        position: absolute;
+        width: 95px;
+        left: 177px;
+        flex: auto;
+        top: 303px;
+    }
+}
