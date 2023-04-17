@@ -1,8 +1,6 @@
 <template>
   <div>
-    <b-container>
-      <b-row>
-        <b-button @click="printThis">imprimir</b-button>
+      <b-row class="p-0 m-0">
         <b-col cols="12" class="conteudo alinhamento-central">
           <div class="etiqueta" ref="printcontent">
             <div class="consumo">
@@ -65,11 +63,13 @@
                 G <div></div>
               </span>
             </div>
-            <b-form-input v-model="text" placeholder="65dB" id="db"></b-form-input>
+            <b-form-input v-model="etiqueta.db" placeholder="65dB" id="db"></b-form-input>
           </div>          
         </b-col>
       </b-row>
-    </b-container>
+    <b-button id="print" @click="printThis">
+      <span>baixar imagem</span><b-img src="images/icon-download.png"></b-img>
+    </b-button>
   </div>
 </template>
 
@@ -87,7 +87,7 @@ export default {
     return{
       cc: { a: true, b: false, c: false, d: false, e: false, f: false, g: false },
       ch: { a: true, b: false, c: false, d: false, e: false, f: false, g: false },
-      etiqueta: 'etiqueta_'
+      etiqueta: { consumo: '', chuva: '', db: '' }
     }
   },
   methods:{
@@ -95,6 +95,7 @@ export default {
       Object.keys(this.cc).forEach((item) => {
         if(item == index){
           this.cc[index] = true
+          this.etiqueta.consumo = index
         } else {
           this.cc[item] = false
         }
@@ -104,6 +105,7 @@ export default {
       Object.keys(this.ch).forEach((item) => {
         if(item == index){
           this.ch[index] = true
+          this.etiqueta.chuva = index
         } else {
           this.ch[item] = false
         }
@@ -119,7 +121,12 @@ export default {
       const printCanvas = await html2canvas(el, options);
 
       const link = document.createElement("a");
-      link.setAttribute("download", "etiqueta.jpg");
+      if(this.etiqueta.consumo == '' || this.etiqueta.chuva == '' || this.etiqueta.db == ''){
+        this.etiqueta.consumo = 'a'
+        this.etiqueta.chuva = 'a'
+        this.etiqueta.db = '65dB'
+      }
+      link.setAttribute("download", `etiqueta_${this.etiqueta.consumo}-${this.etiqueta.chuva}-${this.etiqueta.db}.jpg`);
       link.setAttribute(
         "href",
         printCanvas
